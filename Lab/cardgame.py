@@ -17,7 +17,10 @@ class Deck:
         self.values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 
         # TODO: Create a deck of cards.
-        self.cards = [Card(suit, value) for suit in self.suits
+        self.cards = self.intialize_cards()
+
+    def initialize_cards(self):
+        return [Card(suit, value) for suit in self.suits
                 for value in self.values]
 
     def __str__(self):
