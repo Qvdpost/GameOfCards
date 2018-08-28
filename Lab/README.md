@@ -36,7 +36,7 @@ Our Deck however uses the traditional suits (Hearts, Diamonds, Clubs and Spades)
 
 All these attributes are defined withing the `__init__` method, often times this is the very first method you'll define for your class.
 
-To start out, let's create a deck. Add `deck = Deck()` to the if statement at the bottom of the file and run the script via `python cardgame.py` in the terminal.
+To start out, let's create a deck. Add `deck = Deck()` to the `if __name__ == "__main__"` statement at the bottom of the file and run the script via `python cardgame.py` in the terminal.
 If everything went well, nothing should've happened.. As a matter of fact, the deck has no cards at all yet!
 
 {% next "Continue: Methods" %}
@@ -89,7 +89,7 @@ Notice how an object can be passed around and used much like any other variable 
 
 To test if shuffling the cards works as we hope it would, we're going to see what card is on top before and after shuffling. Before shuffling we expect to see the King of Spades and after shuffling we expect.. well any card really.
 
-First let's add `card = deck.deal()` to the if __name__ == "__main__", right under the creation of the deck. This should be our King of Spades, so let's check by printing. Use `print(card)` to print the card object given back by the deck's deal method.
+First let's add `card = deck.deal()` to the `if __name__ == "__main__"`, right under the creation of the deck. This should be our King of Spades, so let's check by printing. Use `print(card)` to print the card object given back by the deck's deal method.
 Hmmm that's not very helpful is it? It printed something like "<__main__.Card object at 0x7f2fbb828128>", at least it should. If it didn't, retrace your steps to see what went wrong before continuing.
 If your terminal output does look alike, let me explain what we're seeing. First we have the "__main__.Card object" which tells us we printed an instance (object) of type Card originating from our main file. Secondly the "at 0x7f2fbb828128" tells us where that object was allocated in memory. So, was this the King of Spades then?
 To check, instead of printing the object, we could try and print its attributes.
@@ -111,7 +111,7 @@ This should print 5 different playing cards in no particular order. If they are,
 ## Printing a list of objects
 
 Naturally you would expect printing the deck would be much the same, but there's a small caveat. Try printing the deck.cards list. See how we end up with those memory locations again?
-What happens is, when printing a list the redeclared `__str__` method isn't called, instead the `__repr__` method is called. But before you go rewriting that method, let me first tell you that you shouldn't actually be printing lists like that in the first place. When printing a list, you should be unpacking each element and print them individually. Much like printing arrays in C, printing a list in Python is done iteratively. Add the following to the bottom of the if __name__ == "__main__" statement in cardgame.py:
+What happens is, when printing a list the redeclared `__str__` method isn't called, instead the `__repr__` method is called. But before you go rewriting that method, let me first tell you that you shouldn't actually be printing lists like that in the first place. When printing a list, you should be unpacking each element and print them individually. Much like printing arrays in C, printing a list in Python is done iteratively. Add the following to the bottom of the `if __name__ == "__main__"` statement in cardgame.py:
 ```python
 for card in deck.cards:
   print(card)
