@@ -3,7 +3,7 @@
 Object-oriented programming is commonly used to model real-world things, like cars, and their interactions and behaviors. The objects bundle all relevant information and guarantee that their procedure (methods in case of Python) function as expected.
 But before getting into the nitty gritty of OOP, let's first walk through some of the concepts you've just learned.  
 
-<img align="left" src="card_deck.png" style="padding: 10px">
+![A Deck of Cards](card_deck.png)
 We'll practice these concepts by creating a deck of 52 playing cards. Each card will be represented by an object and the deck itself will be an object too!
 Interacting with the deck will be done via its procedures, or methods if you will.
 
