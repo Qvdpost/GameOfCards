@@ -17,8 +17,6 @@ Interacting with the deck will be done via its procedures, or methods if you wil
 <br>
 <br>
 <br>
-<br>
-<br>
 
 For a quick refresher on Python basic objects watch the following Doug-talk.
 
