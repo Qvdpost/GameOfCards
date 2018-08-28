@@ -44,7 +44,7 @@ If everything went well, nothing should've happened.. As a matter of fact, the d
 ## Methods
 
 Now let's get started with the methods. Firstly there's the `__init__`, it is called the initialisator. When you create an object the `__init__` is used to set it up with the correct values. As you can see, we've already supplied it with suits and values, but not the actual card objects yet.
-To initialise the cards we're going to use a method. Let's call it `initialise_cards(self)`. Adding a method is like declaring a function, only at an indented level under the class it belongs to. The function can usually only be called by the class it is attached to.
+To initialize the cards we're going to use a method. Let's call it `initialize_cards(self)`. Adding a method is like declaring a function, only at an indented level under the class it belongs to. The function can usually only be called by the class it is attached to.
 
 Before getting into the actual code, it is advised to write a docstring for your method. A docstring is a comment between two lines of three quotation marks, each class already has a docstrign for example (the `__init__`s do not! Note where the docstring is placed). Keeping your comments up to date and relevant will pay off greatly down the line.
 
@@ -55,7 +55,7 @@ for suit in self.suits:
   for value in self.values:
     card = Card(suit, value)
 ```
-Append each created card to a list of cards and return the entire list. Then change `self.cards = []` into `self.cards = self.initialise_cards()`.
+Append each created card to a list of cards and return the entire list. Then change `self.cards = []` into `self.cards = self.initialize_cards()`.
 As you can see we need to prefix 'self' before attributes and methods inherent to our class. Also, we can call methods and functions within the `__init__`! Only call on the ones needed for initialisation though, not for implementing your entire program.
 
 Rerun the script with `python cardgame.py`, once again nothing should happen. This time however, the deck is stacked!
@@ -156,7 +156,7 @@ class Deck(object):
 
         self.cards = self.intialise_cards()
 
-    def initialise_cards(self):
+    def initialize_cards(self):
         return [Card(suit, value) for suit in self.suits
                 for value in self.values]
 
