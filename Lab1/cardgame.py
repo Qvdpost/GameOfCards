@@ -1,6 +1,6 @@
 from random import shuffle
 
-class Card:
+class Card(object):
     """
     Representation of a single playing card.
     """
@@ -8,7 +8,7 @@ class Card:
         self.suit = suit
         self.value = value
 
-class Deck:
+class Deck(object):
     """
     Representation of a full deck of 52 playing cards.
     """

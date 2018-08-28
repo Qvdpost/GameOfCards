@@ -17,7 +17,7 @@ Interacting with the deck will be done via its procedures, or methods if you wil
 <br>
 <br>
 
-For a quick reminder of the Python basics watch the following Doug-talk.
+For a quick refresher on Python basic objects watch the following Doug-talk.
 
 {% video https://www.youtube.com/watch?v=8xCzjOnfQbw&feature=youtu.be&t=1650 %}
 
@@ -103,4 +103,86 @@ for _ in range(5):
   card = deck.deal()
   print(card)
 ```
-This should print 5 different playing cards in no particular order. If they are, first rerun the script a couple of times. Drawing a straight flush from a shuffled deck multiple times in a row is astronomically low.
+This should print 5 different playing cards in no particular order. If they are, first rerun the script a couple of times. Drawing a straight flush from a shuffled deck multiple times in a row is astronomically low. If you get dealt the same 5 cards multiple times, retrace and fix your mistake!
+
+Naturally you would expect printing the deck would be much the same, but there's a small caveat. Try printing the deck.cards list. See how we end up with those memory locations again?
+What happens is, when printing a list the redeclared `__str__` method isn't called, instead the `__repr__` method is called. But before you go rewriting that method, let me first tell you that you shouldn't actually be printing lists like that in the first place. When printing a list, you should be unpacking each element and print them individually. Much like printing arrays in C, printing a list in Python is done iteratively. Add the following to the bottom of the if __name__ == "__main__" statement in cardgame.py:
+```python
+for card in deck.cards:
+  print(card)
+```
+Now you can see how your deck is shuffled, remember the final card in the list is the top card of the deck!
+
+{% next "Continue: Final Remarks" %}
+
+## Closing Statement
+
+These are the basics of working with objects in Python. You should now have a firmer grasp on how to define classes and what parts of your program should have its data contained within a class.
+
+Use your understanding of these concepts to tackle your next exercise; implementing one of the earliest video games, "Adventure"!
+
+Below you'll find and example of how your code could (or should) look like by the end of the exercise.
+{% spoiler %}
+```python
+from random import shuffle
+
+class Card(object):
+    """
+    Representation of a single playing card.
+    """
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
+
+    def __str__(self):
+        return f"{self.value} of {self.suit}"
+
+class Deck(object):
+    """
+    Representation of a full deck of 52 playing cards.
+    """
+    def __init__(self):
+        self.suits = ['Hearts','Diamonds','Clubs','Spades']
+        self.values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
+
+        self.cards = self.intialise_cards()
+
+    def initialise_cards(self):
+        return [Card(suit, value) for suit in self.suits
+                for value in self.values]
+
+    def shuffle(self):
+        """
+        This method shuffles the deck in place.
+        If no cards are present in the deck, an error is raised instead.
+        """
+        if len(self.cards) < 1:
+            raise ValueError("No cards left in the deck.")
+
+        shuffle(self.cards)
+
+
+    def deal(self):
+        """
+        This method removes the top card from the deck and returns it.
+        If no cards are present in the deck, an error is raised instead.
+        """
+        if len(self.cards) == 0:
+            raise ValueError("All cards have been dealt")
+
+        return self.cards.pop()
+
+if __name__ == "__main__":
+    deck = Deck()
+    deck.shuffle()
+
+    print("Dealt cards: ")
+    for _ in range(5):
+        card = deck.deal()
+        print(card)
+
+    print("The Deck: ")
+    for card in deck.cards:
+        print(card)
+```
+{% endspoiler %}
