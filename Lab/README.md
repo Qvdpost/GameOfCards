@@ -106,6 +106,10 @@ for _ in range(5):
 ```
 This should print 5 different playing cards in no particular order. If they are, first rerun the script a couple of times. Drawing a straight flush from a shuffled deck multiple times in a row is astronomically low. If you get dealt the same 5 cards multiple times, retrace and fix your mistake!
 
+{% next "Continue: Printing lists" %}
+
+## Printing a list of objects
+
 Naturally you would expect printing the deck would be much the same, but there's a small caveat. Try printing the deck.cards list. See how we end up with those memory locations again?
 What happens is, when printing a list the redeclared `__str__` method isn't called, instead the `__repr__` method is called. But before you go rewriting that method, let me first tell you that you shouldn't actually be printing lists like that in the first place. When printing a list, you should be unpacking each element and print them individually. Much like printing arrays in C, printing a list in Python is done iteratively. Add the following to the bottom of the if __name__ == "__main__" statement in cardgame.py:
 ```python
@@ -122,8 +126,13 @@ These are the basics of working with objects in Python. You should now have a fi
 
 Use your understanding of these concepts to tackle your next exercise; implementing one of the earliest video games, "Adventure"!
 
-Below you'll find and example of how your code could (or should) look like by the end of the exercise.
-{% spoiler "Solution" %}
+Below you'll find an example of what your code could (or should) look like by the end of the exercise.
+
+{% next "Solution" %}
+
+## Solution
+
+```python
 from random import shuffle
 
 class Card(object):
@@ -184,4 +193,4 @@ if __name__ == "__main__":
     print("The Deck: ")
     for card in deck.cards:
         print(card)
-{% endspoiler %}
+```
