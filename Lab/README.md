@@ -122,8 +122,7 @@ These are the basics of working with objects in Python. You should now have a fi
 Use your understanding of these concepts to tackle your next exercise; implementing one of the earliest video games, "Adventure"!
 
 Below you'll find and example of how your code could (or should) look like by the end of the exercise.
-{% spoiler %}
-```python
+{% spoiler "Solution" %}
 from random import shuffle
 
 class Card(object):
@@ -184,5 +183,4 @@ if __name__ == "__main__":
     print("The Deck: ")
     for card in deck.cards:
         print(card)
-```
 {% endspoiler %}
